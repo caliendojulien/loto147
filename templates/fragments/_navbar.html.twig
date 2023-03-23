@@ -1,0 +1,60 @@
+<nav class="navbar is-transparent">
+    <div class="navbar-brand">
+        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <a href=""> Accueil </a>
+            {% if app.user %}
+                <a href="{{ path('jouer_index') }}"> Jouer </a>
+            {% endif %}
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    {% if app.user %}
+                        <p class="control">
+                            <a class="button" href="{{ path('app_logout') }}">
+              <span class="icon">
+                <i class="fa-solid fa-user"></i>
+              </span> <span>{{ app.user.email }}</span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a class="button" href="{{ path('app_logout') }}">
+              <span class="icon">
+                <i class="fa-solid fa-user"></i>
+              </span>
+                                <span>Se deconnecter</span>
+                            </a>
+                        </p>
+                    {% endif %}
+                    {% if not app.user %}
+                        <p class="control">
+                            <a class="button" href="{{ path('app_login') }}">
+              <span class="icon">
+                <i class="fa-solid fa-user"></i>
+              </span>
+                                <span>Se connecter</span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a class="button is-info"
+                               href="{{ path('app_register') }}">
+              <span class="icon">
+                <i class="fa-solid fa-address-card"></i>
+              </span>
+                                <span>S'enregistrer</span>
+                            </a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
