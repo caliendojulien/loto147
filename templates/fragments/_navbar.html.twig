@@ -1,60 +1,25 @@
-<nav class="navbar is-transparent">
-    <div class="navbar-brand">
-        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <a href=""> Accueil </a>
+<nav>
+    <div class="grid grid-cols-3 gap-4">
+        <div class="col-start-1 col-end-2 p-2">
+            <a href="/" class="text-blue-500"> Accueil </a>
             {% if app.user %}
                 <a href="{{ path('jouer_index') }}"> Jouer </a>
             {% endif %}
         </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="field is-grouped">
-                    {% if app.user %}
-                        <p class="control">
-                            <a class="button" href="{{ path('app_logout') }}">
-              <span class="icon">
-                <i class="fa-solid fa-user"></i>
-              </span> <span>{{ app.user.email }}</span>
-                            </a>
-                        </p>
-                        <p class="control">
-                            <a class="button" href="{{ path('app_logout') }}">
-              <span class="icon">
-                <i class="fa-solid fa-user"></i>
-              </span>
-                                <span>Se deconnecter</span>
-                            </a>
-                        </p>
-                    {% endif %}
-                    {% if not app.user %}
-                        <p class="control">
-                            <a class="button" href="{{ path('app_login') }}">
-              <span class="icon">
-                <i class="fa-solid fa-user"></i>
-              </span>
-                                <span>Se connecter</span>
-                            </a>
-                        </p>
-                        <p class="control">
-                            <a class="button is-info"
-                               href="{{ path('app_register') }}">
-              <span class="icon">
-                <i class="fa-solid fa-address-card"></i>
-              </span>
-                                <span>S'enregistrer</span>
-                            </a>
-                        </p>
-                    {% endif %}
-                </div>
-            </div>
+        <div class="col-start-3 col-end-4 flex justify-end p-2">
+            {% if app.user %}
+                <a class="" href="{{ path('app_logout') }}"><i
+                            class="fa-solid fa-user"></i><span>{{ app.user.email }}</span></a>
+                <a class="" href="{{ path('app_logout') }}"><i
+                            class="fa-solid fa-user"></i><span>Se deconnecter</span></a>
+                </p>
+            {% endif %}
+            {% if not app.user %}
+                <a class="" href="{{ path('app_login') }}"><i
+                            class="fa-solid fa-user"></i><span>Se connecter</span></a>
+                <a class="" href="{{ path('app_register') }}"><i class="fa-solid fa-address-card"></i><span>S'enregistrer</span>
+                </a>
+            {% endif %}
         </div>
     </div>
 </nav>
