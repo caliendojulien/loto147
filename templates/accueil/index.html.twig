@@ -3,15 +3,17 @@
 {% block title %}FDJ{% endblock %}
 
 {% block body %}
-    <img src="{{ asset('img/logo_fdj.png') }}" alt="logo_fdj">
-    {% if app.user %}
-        <article class="message is-info">
-            <div class="message-header msg-head">
-                <p>Bonjour {{ app.user.email }}</p>
-            </div>
-            <div class="message-body">
-                <a href="{{ path('jouer_index') }}">Tu veux jouer ?</a>
-            </div>
-        </article>
-    {% endif %}
+    <div class="accueil">
+        <img class="w-1/4 mx-auto" src="{{ asset('build/images/logo_fdj.png') }}" alt="logo_fdj">
+        {% if app.user %}
+            <article class="">
+                <div class="">
+                    <p>Bonjour {{ app.user.email }}</p>
+                </div>
+                <div class="">
+                    <a href="{{ path('jouer_index') }}">Tu veux jouer ?</a>
+                </div>
+            </article>
+        {% endif %}
+    </div>
 {% endblock %}

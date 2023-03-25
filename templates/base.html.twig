@@ -15,20 +15,20 @@
 </head>
 <body>
 {% include 'fragments/_navbar.html.twig' %}
-<div class="container">
-    <div class="">
+<div class="bg-gradient-to-t from-blue-200 to-blue-900 text-white text-xl h-screen">
+    <div class="grid h-1/2 place-items-center">
         <div class="">
-            {% for label, messages in app.flashes %}
-                {% for message in messages %}
-                    <div class="flash-{{ label }}">
-                        {{ message }}
-                    </div>
+            <div class="">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="columns is-centered">
-        <div class="column is-half">
+        <div class="text-center">
             {% block body %}{% endblock %}
         </div>
     </div>
